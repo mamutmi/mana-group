@@ -1,0 +1,222 @@
+/* Mana Group — static recreation. Arial Regular only. No Cargo / Diatype. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Matches Cargo snapshot: --base-size 12.5568px at ~951px wide (~100vw/76). */
+  --base-size: clamp(11px, calc(100vw / 76), 18px);
+  --gutter: 1rem;
+  --pad: 1rem;
+  --text: rgba(255, 255, 255, 0.85);
+  --bg: #000000;
+  --hr: rgba(255, 255, 255, 0.75);
+  font-size: var(--base-size);
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:active {
+  opacity: 0.7;
+}
+
+strong,
+b {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+p {
+  margin: 0 0 1.2em;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+hr {
+  display: block;
+  border: 0;
+  height: 1px;
+  margin: 0 0 1rem;
+  background: var(--hr);
+  color: var(--hr);
+}
+
+.site-header,
+.site-main,
+.site-footer {
+  width: 100%;
+  padding: var(--pad);
+}
+
+.site-header {
+  flex: 0 0 auto;
+  background: var(--bg);
+  z-index: 2;
+}
+
+.site-main {
+  flex: 1 1 auto;
+  overflow: auto;
+  min-height: 0;
+}
+
+.site-footer {
+  flex: 0 0 auto;
+  margin-top: auto;
+  background: var(--bg);
+  z-index: 2;
+}
+
+/* 12-column Cargo grid */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 0;
+  width: 100%;
+  align-items: start;
+}
+
+.span-1 { grid-column: span 1; }
+.span-2 { grid-column: span 2; }
+.span-4 { grid-column: span 4; }
+.span-5 { grid-column: span 5; }
+.span-6 { grid-column: span 6; }
+.span-7 { grid-column: span 7; }
+.span-12 { grid-column: 1 / -1; }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 2rem;
+  width: 100%;
+  align-items: start;
+}
+
+.nav-grid {
+  align-items: start;
+}
+
+.brand {
+  white-space: nowrap;
+}
+
+.nav-item {
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.nav-item a {
+  display: inline;
+}
+
+.footer-def {
+  max-width: 100%;
+}
+
+.footer-contact {
+  max-width: 100%;
+}
+
+.socials {
+  margin-top: 1.2em;
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+}
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  line-height: 1;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
+.page-copy {
+  max-width: 100%;
+}
+
+/* Inner pages: rule under the nav, then two equal columns (Cargo default when span is omitted). */
+.page-rule {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 800px) {
+  html {
+    --base-size: clamp(13px, 3.7vw, 16px);
+  }
+
+  .nav-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem 1.15rem;
+    align-items: baseline;
+  }
+
+  .nav-grid .brand {
+    flex: 1 1 100%;
+    margin-bottom: 0.15rem;
+  }
+
+  .nav-grid .nav-item {
+    flex: 0 0 auto;
+  }
+
+  .nav-grid .nav-spacer {
+    display: none;
+  }
+
+  .grid-12.footer-grid,
+  .grid-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+
+  .span-6,
+  .span-7,
+  .span-5 {
+    width: 100%;
+  }
+}

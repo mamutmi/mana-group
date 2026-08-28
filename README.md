@@ -1,0 +1,1 @@
+This is a static recreation of the Mana Group website (mana-group.co) for GitHub Pages: black full-bleed pages, Arial Regular throughout, the original About / Venture / Search / Lab / Podcast copy, and the pinned nav and footer from the live Cargo site, with no Cargo JavaScript, CSS, or Diatype fonts.
