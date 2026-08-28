@@ -129,20 +129,30 @@ hr {
 }
 
 .nav-grid {
-  align-items: start;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  column-gap: 1.15rem;
+  row-gap: 0;
 }
 
 .brand {
   white-space: nowrap;
+  margin-right: auto;
 }
 
 .nav-item {
+  flex: 0 0 auto;
   min-width: 0;
   white-space: nowrap;
 }
 
 .nav-item a {
   display: inline;
+}
+
+.nav-spacer {
+  display: none;
 }
 
 .footer-def {
